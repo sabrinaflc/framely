@@ -1,10 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
 
+.text-gradient-conic {
+  background-image: conic-gradient(
+    from 0turn,
+    #ff5f6d, #ffc371, #40c9ff, #ff3cac, #ff5f6d
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+
 body {
     font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 40px;
-    background-color: #f8fafc;
+    background-color: #051739;
     color: #1e293b;
     line-height: 1.6;
 }
@@ -15,9 +28,9 @@ header {
 }
 
 header h1 {
-    font-size: 2rem;
+    font-size: 5rem;
     font-weight: 700;
-    color: #0f172a;
+    color: #ffffff;
     margin-bottom: 20px;
 }
 
@@ -29,7 +42,7 @@ nav {
 
 nav button {
     padding: 10px 20px;
-    background-color: #e2e8f0;
+    background-color: #ffc371;
     color: #0f172a;
     border: none;
     border-radius: 8px;
@@ -40,13 +53,13 @@ nav button {
 }
 
 nav button:hover {
-    background-color: #3b82f6;
+    background-color: #40c9ff;
     color: white;
     transform: translateY(-2px);
 }
 
 .section {
-    background: white;
+    background: rgb(237, 236, 236);
     padding: 30px;
     border-radius: 12px;
     max-width: 800px;
