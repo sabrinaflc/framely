@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
 
+
 .text-gradient-conic {
   background-image: conic-gradient(
     from 0turn,
@@ -20,6 +21,8 @@ body {
     background-color: #051739;
     color: #1e293b;
     line-height: 1.6;
+    overflow-y: hidden;
+    overflow: hidden;
 }
 
 header {
