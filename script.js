@@ -96,16 +96,18 @@ document.getElementById('createForm').addEventListener('submit', e => {
             const id = Date.now().toString();
             campaigns.push({ id, title, description, hashtag, frame: event.target.result });
             localStorage.setItem('campaigns', JSON.stringify(campaigns));
+            console.log('Campanha salva:', { id, title, description, hashtag });
             const baseUrl = window.location.origin || 'http://localhost:8000'; // Fallback para testes locais
             const link = `${baseUrl}/campaign.html?id=${id}`;
             const campaignLink = document.getElementById('campaignLink');
             if (campaignLink) {
                 campaignLink.style.display = 'block';
-                campaignLink.innerHTML = `Link da campanha: <a href="${link}" target="_blank">${link}</a>`;
+                campaignLink.innerHTML = `Link da campanha: <a href="${link}" target="_blank">${link}</a> <button onclick="copyLink('${link}')">Copiar</button>`;
+                console.log('Link gerado:', link);
             } else {
                 console.error('Elemento campaignLink não encontrado.');
             }
-            alert('Campanha criada com sucesso!');
+            alert('Campanha criada com sucesso! Copie o link abaixo para compartilhar.');
             showSection('create');
         } catch (error) {
             console.error('Erro ao salvar campanha:', error);
@@ -118,6 +120,15 @@ document.getElementById('createForm').addEventListener('submit', e => {
     };
     reader.readAsDataURL(file);
 });
+
+function copyLink(link) {
+    navigator.clipboard.writeText(link).then(() => {
+        alert('Link copiado para a área de transferência!');
+    }).catch(err => {
+        console.error('Erro ao copiar o link:', err);
+        alert('Erro ao copiar o link. Copie manualmente.');
+    });
+}
 
 document.getElementById('photo').addEventListener('change', e => {
     const file = e.target.files[0];

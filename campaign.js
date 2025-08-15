@@ -15,15 +15,39 @@ const selectedCampaign = campaigns.find(c => c.id === campaignId);
 if (selectedCampaign) {
     frameImg = new Image();
     frameImg.src = selectedCampaign.frame;
+    frameImg.onload = () => console.log('Frame carregado com sucesso:', selectedCampaign.title);
+    frameImg.onerror = () => {
+        console.error('Erro ao carregar o frame da campanha.');
+        alert('Erro: Não foi possível carregar o frame da campanha.');
+    };
+} else {
+    console.error('Campanha não encontrada para o ID:', campaignId);
+    alert('Erro: Campanha não encontrada. Verifique o link ou crie uma nova campanha.');
 }
 
 document.getElementById('photo').addEventListener('change', e => {
     const file = e.target.files[0];
+    if (!file) {
+        console.error('Nenhum arquivo de foto selecionado.');
+        alert('Por favor, selecione uma foto.');
+        return;
+    }
     const reader = new FileReader();
     reader.onload = function(event) {
         photoImg = new Image();
         photoImg.src = event.target.result;
-        photoImg.onload = drawPreview;
+        photoImg.onload = () => {
+            console.log('Foto carregada com sucesso.');
+            drawPreview();
+        };
+        photoImg.onerror = () => {
+            console.error('Erro ao carregar a foto.');
+            alert('Erro ao carregar a foto. Tente outro arquivo.');
+        };
+    };
+    reader.onerror = () => {
+        console.error('Erro ao ler a foto.');
+        alert('Erro ao processar a foto. Tente novamente.');
     };
     reader.readAsDataURL(file);
 });
@@ -114,6 +138,10 @@ function drawPreview() {
 }
 
 document.getElementById('generate').addEventListener('click', () => {
+    if (!photoImg || !frameImg) {
+        alert('Por favor, faça upload de uma foto e verifique se a campanha está carregada.');
+        return;
+    }
     const link = document.createElement('a');
     link.download = 'twibbon.png';
     link.href = canvas.toDataURL('image/png', 1.0);
