@@ -182,3 +182,86 @@ footer img {
     margin: 0 10px;
     cursor: pointer;
 }
+
+/* ===== Responsividade para telas pequenas ===== */
+@media (max-width: 768px) {
+  
+  body {
+    padding: 20px;
+  }
+
+  header h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  nav button {
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 8px 15px;
+  }
+
+  .section {
+    padding: 20px;
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  form {
+    gap: 12px;
+  }
+
+  input, textarea, button {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+
+  #campaignList li {
+    font-size: 0.9rem;
+    padding: 12px;
+  }
+
+  footer {
+    flex-direction: column;
+    margin-bottom: 10%;
+    gap: 10px;
+  }
+
+  footer img {
+    width: 25px;
+    height: 25px;
+    margin: 5px 0;
+  }
+}
+
+/* ===== Para telas bem pequenas (celulares pequenos) ===== */
+@media (max-width: 480px) {
+
+  header h1 {
+    font-size: 2.2rem;
+  }
+
+  nav button {
+    font-size: 0.85rem;
+    padding: 8px 12px;
+  }
+
+  .section {
+    padding: 15px;
+  }
+
+  input, textarea, button {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+
+  #campaignList li {
+    font-size: 0.85rem;
+    padding: 10px;
+  }
+}
