@@ -227,7 +227,7 @@ footer img {
   }
 
   footer {
-    flex-direction: column;
+    flex-direction: row;
     margin-bottom: 10%;
     gap: 10px;
   }
