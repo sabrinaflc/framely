@@ -23,10 +23,15 @@ Você pode visitar a versão hospedada em: [framezzy.vercel.app](https://framezz
 ## Estrutura do Projeto
 .
 ├── assets/ # Imagens, fontes e outros recursos estáticos
+
 ├── src/ # Códigos-fonte JavaScript ou componentes
+
 ├── campaign.html # Página de demonstração de campanha
+
 ├── campaigns.json # Dados de campanhas (ex: títulos, imagens, links)
+
 ├── index.html # Página principal
+
 └── style.css # Estilos globais do site
 
 
