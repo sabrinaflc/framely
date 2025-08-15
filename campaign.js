@@ -1,4 +1,5 @@
-const API_URL = 'http://localhost:3000/api'; // URL do backend
+/* const API_URL = 'http://localhost:3000/api'; // URL do backend */
+const API_URL = '/api';
 
 let photoImg = null;
 let frameImg = null;

@@ -1,4 +1,5 @@
-const API_URL = 'http://localhost:3000/api'; // URL do backend
+/* const API_URL = 'http://localhost:3000/api'; // URL do backend */
+const API_URL = '/api';
 
 let selectedCampaign = null;
 let photoImg = null;
@@ -280,3 +281,6 @@ document.getElementById('generate').addEventListener('click', () => {
 
 // Inicializar
 showSection('create');
+
+const baseUrl = window.location.origin; // Remove o fallback local
+const link = `${baseUrl}/campaign.html?id=${campaign.id}`;
