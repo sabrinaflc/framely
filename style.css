@@ -160,3 +160,24 @@ button:hover {
 #campaignLink a:hover {
     text-decoration: underline;
 }
+
+footer {
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    /* margin-top: 1%; */
+    margin-bottom: 35%;
+    padding: 20px;
+}
+
+footer img {
+    display: flex;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    margin: 0 10px;
+    cursor: pointer;
+}
