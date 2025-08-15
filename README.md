@@ -44,4 +44,4 @@ Banco de dados para que qualquer pessoa insira seu frame e compartilhe com amigo
 If you have any suggestions or feedback, feel free to open an issue or get in touch!
 - brina.lins@outlook.com
 
-- ## LAST UPDATE: August, 15 - 2025
+## LAST UPDATE: August, 15 - 2025
