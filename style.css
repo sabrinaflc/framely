@@ -1,25 +1,12 @@
+/* Manter o conteúdo original e adicionar pequenos ajustes */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
 
-
-/* .text-gradient-conic {
-  background-image: conic-gradient(
-    from 0turn,
-    #ff5f6d, #ffc371, #40c9ff, #ff3cac, #ff5f6d
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
-  display: inline-block;
-} */
-
 .logo {
-    max-width: 400px; /* largura máxima */
-    height: auto; /* mantém proporção */
+    max-width: 400px;
+    height: auto;
     display: block;
-    margin: 0 auto; /* centraliza */
+    margin: 0 auto;
 }
-
 
 body {
     font-family: 'Inter', sans-serif;
@@ -121,32 +108,10 @@ button {
 }
 
 button:hover {
-    margin-top: 5px;
-    padding: 12px;
     background-color: #af7809;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-#campaignList {
-    list-style: none;
-    padding: 0;
 }
 
-#campaignList li {
-    padding: 15px;
-    background: #f8fafc;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    font-size: 0.95rem;
-    border: 1px solid #e2e8f0;
-}
-
-#preview {
+#preview, #view-preview {
     border: 1px solid #e2e8f0;
     border-radius: 12px;
     margin-top: 20px;
@@ -162,7 +127,6 @@ button:hover {
     margin: 10px 0;
 }
 
-
 footer {
     color: white;
     display: flex;
@@ -170,7 +134,6 @@ footer {
     align-items: center;
     text-align: center;
     justify-content: center;
-    /* margin-top: 1%; */
     margin-bottom: 35%;
     padding: 20px;
 }
@@ -184,85 +147,71 @@ footer img {
     cursor: pointer;
 }
 
-/* ===== Responsividade para telas pequenas ===== */
 @media (max-width: 768px) {
-  
-  body {
-    padding: 20px;
-  }
+    body {
+        padding: 20px;
+    }
 
-  header h1 {
-    font-size: 3rem;
-    margin-bottom: 15px;
-  }
+    header h1 {
+        font-size: 3rem;
+        margin-bottom: 15px;
+    }
 
-  nav {
-    flex-direction: column;
-    gap: 8px;
-  }
+    nav {
+        flex-direction: column;
+        gap: 8px;
+    }
 
-  nav button {
-    width: 100%;
-    font-size: 0.9rem;
-    padding: 8px 15px;
-  }
+    nav button {
+        width: 100%;
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
 
-  .section {
-    padding: 20px;
-    max-width: 100%;
-    margin-bottom: 20px;
-  }
+    .section {
+        padding: 20px;
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
 
-  form {
-    gap: 12px;
-  }
+    form {
+        gap: 12px;
+    }
 
-  input, textarea, button {
-    font-size: 0.95rem;
-    padding: 10px;
-  }
+    input, textarea, button {
+        font-size: 0.95rem;
+        padding: 10px;
+    }
 
-  #campaignList li {
-    font-size: 0.9rem;
-    padding: 12px;
-  }
+    footer {
+        flex-direction: row;
+        margin-bottom: 10%;
+        gap: 10px;
+    }
 
-  footer {
-    flex-direction: row;
-    margin-bottom: 10%;
-    gap: 10px;
-  }
-
-  footer img {
-    width: 25px;
-    height: 25px;
-    margin: 5px 0;
-  }
+    footer img {
+        width: 25px;
+        height: 25px;
+        margin: 5px 0;
+    }
 }
 
-/* ===== Para telas bem pequenas (celulares pequenos) ===== */
 @media (max-width: 480px) {
+    header h1 {
+        font-size: 2.2rem;
+    }
 
-  header h1 {
-    font-size: 2.2rem;
-  }
+    nav button {
+        font-size: 0.85rem;
+        padding: 8px 12px;
+    }
 
-  nav button {
-    font-size: 0.85rem;
-    padding: 8px 12px;
-  }
+    .section {
+        padding: 15px;
+    }
 
-  .section {
-    padding: 15px;
-  }
-
-  input, textarea, button {
-    font-size: 0.9rem;
-    padding: 8px;
-  }
-
-  #campaignList li {
-    font-size: 0.85rem;
-    padding: 10px;
-  }
+    input, textarea, button {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
 }

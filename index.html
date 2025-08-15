@@ -1,35 +1,62 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="assets/fav.png" type="image/x-icon">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <title>Framezzy | by Sabrina Lins</title>
+    <title>Mega Help 2025 Pernambuco</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Firebase SDK (apenas Firestore) -->
+    <script type="module" src="https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js"></script>
 </head>
 <body>
     <header>
-        <img src="assets/FRAMEZZY.png" alt="Framezzy" class="logo">
+        <img class="logo" src="assets/logo.png" alt="Mega Help 2025 Pernambuco">
+        <h1 class="text-gradient-conic">Mega Help 2025 Pernambuco</h1>
     </header>
 
-    <section id="join" class="section">
-        <h2>Mega Help 2025 Pernambuco</h2>
-        <input type="file" id="photo" accept="image/*" required>
-        <p class="instructions">
-            No celular: use gestos de pinça para zoom e arraste para mover.<br> 
-            No computador: use a roda do mouse para zoom e arraste para mover.
-        </p>
-        <canvas id="preview" width="2000" height="2000"></canvas>
-        <button id="generate">Gerar e Baixar</button>
-    </section>
+    <div class="section" id="upload-section">
+        <h2>Enviar Novo Frame</h2>
+        <form>
+            <input type="file" id="frame-upload" accept="image/png, image/jpeg" />
+            <button type="button" onclick="uploadFrame()">Enviar Frame</button>
+        </form>
+    </div>
 
+    <div class="section" id="preview-section" style="display: none;">
+        <h2>Pré-visualizar Frame</h2>
+        <form>
+            <input type="file" id="photo" accept="image/png, image/jpeg" />
+            <p class="instructions">
+                No celular: use gestos de pinça para zoom e arraste para mover.<br>
+                No computador: use a roda do mouse para zoom e arraste para mover.
+            </p>
+            <canvas id="preview" width="500" height="500"></canvas>
+            <button id="generate" type="button">Gerar e Baixar</button>
+            <button type="button" onclick="generateShareLink()">Gerar Link de Compartilhamento</button>
+        </form>
+    </div>
 
-    <footer class="footer">
-        <a href="https://www.linkedin.com/in/sabrina-linsc/" target="_blank"><img src="assets/linkedin.png" alt="LinkedIn"></a>
-        <a href="https://github.com/sabrinaflc" target="_blank"><img src="assets/github.png" alt="GitHub"></a>
+    <div class="section" id="view-section" style="display: none;">
+        <h2>Usar Frame Compartilhado</h2>
+        <form>
+            <input type="file" id="view-photo" accept="image/png, image/jpeg" />
+            <p class="instructions">
+                No celular: use gestos de pinça para zoom e arraste para mover.<br>
+                No computador: use a roda do mouse para zoom e arraste para mover.
+            </p>
+            <canvas id="view-preview" width="500" height="500"></canvas>
+            <button id="view-generate" type="button">Gerar e Baixar</button>
+        </form>
+    </div>
+
+    <footer>
+        <img src="assets/facebook.png" alt="Facebook">
+        <img src="assets/instagram.png" alt="Instagram">
+        <img src="assets/twitter.png" alt="Twitter">
     </footer>
 
-    <script src="/js/script.js"></script>
+    <script type="module" src="script.js"></script>
 </body>
 </html>
