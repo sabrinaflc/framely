@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Participar de Campanha</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Adicionar Foto ao Frame</h1>
+    </header>
+    <section class="section">
+        <h2>Personalize sua Foto</h2>
+        <label>Sua Foto:</label>
+        <input type="file" id="photo" accept="image/*" required>
+        <p class="instructions">No celular: use gestos de pinça para zoom e arraste para mover. No computador: use a roda do mouse para zoom e arraste para mover.</p>
+        <canvas id="preview" width="2000" height="2000"></canvas>
+        <button id="generate">Gerar e Baixar</button>
+    </section>
+    <script src="js/campaign.js"></script>
+</body>
+</html>
