@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
 
 
-.text-gradient-conic {
+/* .text-gradient-conic {
   background-image: conic-gradient(
     from 0turn,
     #ff5f6d, #ffc371, #40c9ff, #ff3cac, #ff5f6d
@@ -11,11 +11,19 @@
   background-clip: text;
   color: transparent;
   display: inline-block;
+} */
+
+.logo {
+    max-width: 400px; /* largura máxima */
+    height: auto; /* mantém proporção */
+    display: block;
+    margin: 0 auto; /* centraliza */
 }
 
 
 body {
     font-family: 'Inter', sans-serif;
+    text-align: center;
     margin: 0;
     padding: 40px;
     background-color: #051739;
@@ -102,7 +110,7 @@ textarea {
 button {
     margin-top: 5px;
     padding: 12px;
-    background-color: #3b82f6;
+    background-color: #051738;
     color: white;
     border: none;
     border-radius: 8px;
@@ -112,7 +120,18 @@ button {
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-
+button:hover {
+    margin-top: 5px;
+    padding: 12px;
+    background-color: #af7809;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
 #campaignList {
     list-style: none;
     padding: 0;
@@ -143,21 +162,6 @@ button {
     margin: 10px 0;
 }
 
-#campaignLink {
-    font-size: 0.9rem;
-    color: #3b82f6;
-    margin-top: 15px;
-    word-break: break-all;
-}
-
-#campaignLink a {
-    color: #3b82f6;
-    text-decoration: none;
-}
-
-#campaignLink a:hover {
-    text-decoration: underline;
-}
 
 footer {
     color: white;
