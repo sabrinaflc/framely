@@ -21,7 +21,6 @@
 Você pode visitar a versão hospedada em: [framezzy.vercel.app](https://framezzy.vercel.app) :contentReference[oaicite:0]{index=0}
 
 ## Estrutura do Projeto
-.
 ├── assets/ # Imagens, fontes e outros recursos estáticos
 
 ├── src/ # Códigos-fonte JavaScript ou componentes
