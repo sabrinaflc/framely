@@ -6,13 +6,11 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-## Visão Geral
+## 🚀 Visão Geral
 
 **Framezzy** é um projeto front-end construído com HTML, CSS e JavaScript, destinado à criação e exibição de campanhas visuais atrativas. O repositório inclui:
 
 - Uma página principal (`index.html`)
-- Um componente de campanha (`campaign.html`)
-- Dados de configuração de campanhas (`campaigns.json`)
 - Estilização customizada (`style.css`)
 - Recursos adicionais na pasta `assets/`
 
@@ -20,22 +18,30 @@
 
 Você pode visitar a versão hospedada em: [framezzy.vercel.app](https://framezzy.vercel.app)
 
-## Estrutura do Projeto
+## 🛠️ Estrutura do Projeto
 ├── assets/ # Imagens, fontes e outros recursos estáticos
 
-├── src/ # Códigos-fonte JavaScript ou componentes
-
-├── campaign.html # Página de demonstração de campanha
-
-├── campaigns.json # Dados de campanhas (ex: títulos, imagens, links)
+├── js/ # Códigos-fonte JavaScript ou componentes
 
 ├── index.html # Página principal
 
 └── style.css # Estilos globais do site
 
 
-## Tecnologias Utilizadas
+## 💡 Tecnologias Utilizadas
 
 - **HTML5**
 - **CSS3**
 - **JavaScript**
+- **SweetAlert Library**
+
+## 📌 Future Improvements
+
+Banco de dados para que qualquer pessoa insira seu frame e compartilhe com amigos.
+
+## 📬 Contact
+
+If you have any suggestions or feedback, feel free to open an issue or get in touch!
+- brina.lins@outlook.com
+
+- ## LAST UPDATE: August, 15 - 2025
