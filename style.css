@@ -100,6 +100,7 @@ textarea {
 }
 
 button {
+    margin-top: 5px;
     padding: 12px;
     background-color: #3b82f6;
     color: white;
@@ -111,10 +112,6 @@ button {
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-button:hover {
-    background-color: #2563eb;
-    transform: translateY(-2px);
-}
 
 #campaignList {
     list-style: none;
