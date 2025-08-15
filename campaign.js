@@ -1,6 +1,4 @@
-/* const API_URL = 'http://localhost:3000/api'; // URL do backend */
-const API_URL = '/api';
-
+let campaigns = JSON.parse(localStorage.getItem('campaigns')) || [];
 let photoImg = null;
 let frameImg = null;
 let zoom = 1;
@@ -12,27 +10,19 @@ let lastPinchDistance = null;
 
 const urlParams = new URLSearchParams(window.location.search);
 const campaignId = urlParams.get('id');
+const selectedCampaign = campaigns.find(c => c.id === campaignId);
 
-async function loadCampaign() {
-    try {
-        const response = await fetch(`${API_URL}/campaigns/${campaignId}`);
-        const selectedCampaign = await response.json();
-        if (!selectedCampaign) {
-            console.error('Campanha não encontrada para o ID:', campaignId);
-            alert('Erro: Campanha não encontrada. Verifique o link ou crie uma nova campanha.');
-            return;
-        }
-        frameImg = new Image();
-        frameImg.src = selectedCampaign.frame;
-        frameImg.onload = () => console.log('Frame carregado com sucesso:', selectedCampaign.title);
-        frameImg.onerror = () => {
-            console.error('Erro ao carregar o frame da campanha.');
-            alert('Erro: Não foi possível carregar o frame da campanha.');
-        };
-    } catch (error) {
-        console.error('Erro ao carregar campanha:', error);
-        alert('Erro ao carregar campanha.');
-    }
+if (selectedCampaign) {
+    frameImg = new Image();
+    frameImg.src = selectedCampaign.frame;
+    frameImg.onload = () => console.log('Frame carregado com sucesso:', selectedCampaign.title);
+    frameImg.onerror = () => {
+        console.error('Erro ao carregar o frame da campanha.');
+        alert('Erro: Não foi possível carregar o frame da campanha.');
+    };
+} else {
+    console.error('Campanha não encontrada para o ID:', campaignId);
+    alert('Erro: Campanha não encontrada. Verifique o link ou crie uma nova campanha.');
 }
 
 document.getElementById('photo').addEventListener('change', e => {
@@ -157,6 +147,3 @@ document.getElementById('generate').addEventListener('click', () => {
     link.href = canvas.toDataURL('image/png', 1.0);
     link.click();
 });
-
-// Inicializar
-loadCampaign();

@@ -1,6 +1,4 @@
-/* const API_URL = 'http://localhost:3000/api'; // URL do backend */
-const API_URL = '/api';
-
+let campaigns = JSON.parse(localStorage.getItem('campaigns')) || [];
 let selectedCampaign = null;
 let photoImg = null;
 let frameImg = null;
@@ -23,69 +21,49 @@ function showSection(sectionId) {
     if (sectionId === 'join') loadCampaignSelect();
 }
 
-async function loadCampaigns() {
-    try {
-        const response = await fetch(`${API_URL}/campaigns`);
-        const campaigns = await response.json();
-        const list = document.getElementById('campaignList');
-        if (!list) {
-            console.error('Elemento campaignList não encontrado.');
-            return;
-        }
-        list.innerHTML = '';
-        campaigns.forEach(camp => {
-            const li = document.createElement('li');
-            li.innerHTML = `<strong>${camp.title}</strong><br>${camp.description}<br>Hashtag: ${camp.hashtag}`;
-            list.appendChild(li);
-        });
-    } catch (error) {
-        console.error('Erro ao carregar campanhas:', error);
-        alert('Erro ao carregar campanhas.');
+function loadCampaigns() {
+    const list = document.getElementById('campaignList');
+    if (!list) {
+        console.error('Elemento campaignList não encontrado.');
+        return;
     }
+    list.innerHTML = '';
+    campaigns.forEach(camp => {
+        const li = document.createElement('li');
+        li.innerHTML = `<strong>${camp.title}</strong><br>${camp.description}<br>Hashtag: ${camp.hashtag}`;
+        list.appendChild(li);
+    });
 }
 
-async function loadCampaignSelect() {
-    try {
-        const response = await fetch(`${API_URL}/campaigns`);
-        const campaigns = await response.json();
-        const select = document.getElementById('campaignSelect');
-        if (!select) {
-            console.error('Elemento campaignSelect não encontrado.');
-            return;
-        }
-        select.innerHTML = '';
-        campaigns.forEach(camp => {
-            const option = document.createElement('option');
-            option.value = camp.id;
-            option.textContent = camp.title;
-            select.appendChild(option);
-        });
-        if (campaigns.length > 0) selectCampaign(campaigns[0].id);
-    } catch (error) {
-        console.error('Erro ao carregar campanhas para select:', error);
-        alert('Erro ao carregar campanhas.');
+function loadCampaignSelect() {
+    const select = document.getElementById('campaignSelect');
+    if (!select) {
+        console.error('Elemento campaignSelect não encontrado.');
+        return;
     }
+    select.innerHTML = '';
+    campaigns.forEach(camp => {
+        const option = document.createElement('option');
+        option.value = camp.id;
+        option.textContent = camp.title;
+        select.appendChild(option);
+    });
+    if (campaigns.length > 0) selectCampaign(campaigns[0].id);
 }
 
-async function selectCampaign(id) {
-    try {
-        const response = await fetch(`${API_URL}/campaigns/${id}`);
-        selectedCampaign = await response.json();
-        if (!selectedCampaign) {
-            console.error(`Campanha com ID ${id} não encontrada.`);
-            return;
-        }
-        frameImg = new Image();
-        frameImg.src = selectedCampaign.frame;
-        frameImg.onerror = () => console.error('Erro ao carregar o frame da campanha.');
-        drawPreview();
-    } catch (error) {
-        console.error('Erro ao selecionar campanha:', error);
-        alert('Erro ao selecionar campanha.');
+function selectCampaign(id) {
+    selectedCampaign = campaigns.find(c => c.id === id);
+    if (!selectedCampaign) {
+        console.error(`Campanha com ID ${id} não encontrada.`);
+        return;
     }
+    frameImg = new Image();
+    frameImg.src = selectedCampaign.frame;
+    frameImg.onerror = () => console.error('Erro ao carregar o frame da campanha.');
+    drawPreview();
 }
 
-document.getElementById('createForm').addEventListener('submit', async e => {
+document.getElementById('createForm').addEventListener('submit', e => {
     e.preventDefault();
     const form = document.getElementById('createForm');
     if (!form) {
@@ -113,27 +91,14 @@ document.getElementById('createForm').addEventListener('submit', async e => {
     }
 
     const reader = new FileReader();
-    reader.onload = async function(event) {
+    reader.onload = function(event) {
         try {
-            const campaign = {
-                id: Date.now().toString(),
-                title,
-                description,
-                hashtag,
-                frame: event.target.result
-            };
-            const response = await fetch(`${API_URL}/campaigns`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(campaign)
-            });
-            if (!response.ok) {
-                throw new Error('Erro ao salvar campanha no backend.');
-            }
-            const baseUrl = window.location.origin || 'http://localhost:3000'; // Fallback para testes locais
-            const link = `${baseUrl}/campaign.html?id=${campaign.id}`;
+            const id = Date.now().toString();
+            campaigns.push({ id, title, description, hashtag, frame: event.target.result });
+            localStorage.setItem('campaigns', JSON.stringify(campaigns));
+            console.log('Campanha salva:', { id, title, description, hashtag });
+            const baseUrl = window.location.origin || 'http://localhost:8000'; // Fallback para testes locais
+            const link = `${baseUrl}/campaign.html?id=${id}`;
             const campaignLink = document.getElementById('campaignLink');
             if (campaignLink) {
                 campaignLink.style.display = 'block';
@@ -142,7 +107,7 @@ document.getElementById('createForm').addEventListener('submit', async e => {
             } else {
                 console.error('Elemento campaignLink não encontrado.');
             }
-            alert(`Campanha criada com sucesso! Link: ${link}`);
+            alert('Campanha criada com sucesso! Copie o link abaixo para compartilhar.');
             showSection('create');
         } catch (error) {
             console.error('Erro ao salvar campanha:', error);
@@ -281,6 +246,3 @@ document.getElementById('generate').addEventListener('click', () => {
 
 // Inicializar
 showSection('create');
-
-const baseUrl = window.location.origin; // Remove o fallback local
-const link = `${baseUrl}/campaign.html?id=${campaign.id}`;
