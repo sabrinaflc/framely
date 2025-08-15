@@ -8,7 +8,7 @@
 
 ## Visão Geral
 
-**Framely** é um projeto front-end construído com HTML, CSS e JavaScript, destinado à criação e exibição de campanhas visuais atrativas. O repositório inclui:
+**Framezzy** é um projeto front-end construído com HTML, CSS e JavaScript, destinado à criação e exibição de campanhas visuais atrativas. O repositório inclui:
 
 - Uma página principal (`index.html`)
 - Um componente de campanha (`campaign.html`)
